@@ -4,9 +4,15 @@ Congrats on making it so far! After forest-flame, we should now have a fully spe
 
 Some of you may not have buggy implementations of compilers and would like some more test cases. Before you use the test cases here, we highly recommend that you write your own test suite for for it. If you have a test case that really helped fix a bug for you, please add it to help your fellow classmates. If you think your test case would break a lot of your classmates compilers, share it with us through this repo as we would love to use it.
 
-Currently, our language is missing basic features like a pseudorandom number generator and integer division. We can add these as functions in our language! If you think there are other features we are missing, feel free to write function implementations of them! You might also have some really cool programs such as a minigame that you want to share. Follow the instructions below for adding tests through pull requests.
+Currently, our language is missing basic features like a pseudorandom number generator and integer division. We can add these as functions in our language! If you think there are other features we are missing, feel free to write function implementations of them! You might also have some really cool programs such as a minigame or a fancy data structure that you want to share. Follow the instructions below for adding tests through pull requests.
 
 ## Adding your own tests
 
+ - Create a folder with your name/username in the [tests](./tests) folder
+ - Add your .snek test files to this folder
+ - Add an all_tests.rs file (same format as forest-flame tests/all_tests.rs) to your folder with success tests, static error tests, and runtime error tests
+ - Make a pull request to this repo so that we can check and add your tests to this repo
 
-See ... for an example of how to add test cases to the repository.
+See [tests/Shubham](./tests/Shubham) for an example of a test folder.
+
+Note: Please don't add the starter tests to your test folder when you make a pull request.
