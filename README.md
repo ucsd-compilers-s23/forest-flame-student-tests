@@ -10,7 +10,7 @@ Currently, our language is missing basic features like a pseudorandom number gen
 
  1. Create a subdirectory with your name/username in the [tests](./tests) directory.
  1. Add your `.snek` test files to this directory.
- 1. Add a file `<username>.rs` file (same format as forest-flame `tests/all_tests.rs`) inside `[tests/]` with success tests, static error tests, and runtime error tests. Make sure to specify the `subdir` attribute in each macro invocation pointing to the subdirectory you created in step 1.
+ 1. Add a file `<username>.rs` file (same format as forest-flame `tests/all_tests.rs`) inside `[tests/]` with success tests, static error tests, and runtime error tests. This file must contain the line `mod infra` at the top and each macro invocation must specify the `subdir` attribute pointing to the subdirectory you created in step 1.
  1. Make a pull request to this repo so that we can check and add your tests to this repo.
 
 See [`tests/shubham.rs`](./tests/shubham.rs) and [`tests/shubham`](./tests/shubham) for an example of a test file and subdirectory.
