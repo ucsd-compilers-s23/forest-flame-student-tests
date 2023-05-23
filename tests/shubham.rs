@@ -1,6 +1,7 @@
 mod infra;
 
 success_tests! {
+    subdir: "shubham",
     {
         name: twenty_one,
         file: "twenty_one.snek",
@@ -8,11 +9,6 @@ success_tests! {
     },
 }
 
-runtime_error_tests! {
+runtime_error_tests! {}
 
-}
-
-static_error_tests! {
-
-
-}
+static_error_tests! {}
