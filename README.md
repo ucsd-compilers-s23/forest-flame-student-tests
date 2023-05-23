@@ -8,11 +8,11 @@ Currently, our language is missing basic features like a pseudorandom number gen
 
 ## Adding your own tests
 
- - Create a folder with your name/username in the [tests](./tests) folder
- - Add your .snek test files to this folder
- - Add an all_tests.rs file (same format as forest-flame tests/all_tests.rs) to your folder with success tests, static error tests, and runtime error tests
- - Make a pull request to this repo so that we can check and add your tests to this repo
+ 1. Create a subdirectory with your name/username in the [tests](./tests) directory.
+ 1. Add your `.snek` test files to this directory.
+ 1. Add a file `<username>.rs` file (same format as forest-flame `tests/all_tests.rs`) inside `[tests/]` with success tests, static error tests, and runtime error tests. Make sure to specify the `subdir` attribute in each macro invocation pointing to the subdirectory you created in step 1.
+ 1. Make a pull request to this repo so that we can check and add your tests to this repo.
 
-See [tests/Shubham](./tests/Shubham) for an example of a test folder.
+See [`tests/shubham.rs`] and [`tests/shubham`](./tests/shubham) for an example of a test file and subdirectory.
 
 Note: Please don't add the starter tests to your test folder when you make a pull request.
