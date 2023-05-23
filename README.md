@@ -13,6 +13,6 @@ Currently, our language is missing basic features like a pseudorandom number gen
  1. Add a file `<username>.rs` file (same format as forest-flame `tests/all_tests.rs`) inside `[tests/]` with success tests, static error tests, and runtime error tests. Make sure to specify the `subdir` attribute in each macro invocation pointing to the subdirectory you created in step 1.
  1. Make a pull request to this repo so that we can check and add your tests to this repo.
 
-See [`tests/shubham.rs`] and [`tests/shubham`](./tests/shubham) for an example of a test file and subdirectory.
+See [`tests/shubham.rs`](./tests/shubham.rs) and [`tests/shubham`](./tests/shubham) for an example of a test file and subdirectory.
 
 Note: Please don't add the starter tests to your test folder when you make a pull request.
