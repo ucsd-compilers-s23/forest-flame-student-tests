@@ -1,0 +1,103 @@
+(fun (make-bst val left right)
+    (vec left val right)
+)
+
+(fun (left bst)
+    (if (= nil bst)
+        nil
+        (vec-get bst 0)
+    )
+)
+
+(fun (center bst)
+    (if (= nil bst)
+        nil
+        (vec-get bst 1)
+    )
+)
+
+(fun (right bst)
+    (if (= nil bst)
+        nil
+        (vec-get bst 2)
+    )
+)
+
+(fun (insert bst val)
+    (if (isnum (center bst))
+        (if (= val (center bst))
+            bst
+            (if (< val (center bst))
+                (make-bst
+                    (center bst)
+                    (insert (left bst) val)
+                    (right bst) 
+                )
+                (make-bst
+                    (center bst)
+                    (left bst)
+                    (insert (right bst) val)
+                ) 
+            ) 
+        )
+        (make-bst val nil nil)
+    )
+)
+
+(fun (contains bst val)
+    (if (isnum (center bst))
+        (if (= val (center bst))
+            true
+            (if (< val (center bst))
+                (contains (left bst) val)
+                (contains (right bst) val)
+            ) 
+        ) 
+        false
+    )
+)
+
+(fun (tree-print bst)
+    (if (isnum (center bst))
+        (block
+            (tree-print (left bst))
+            (print (center bst))
+            (tree-print (right bst))    
+        )
+        nil
+    )
+)
+
+(let ((x (make-bst 10 nil nil)))
+    (block
+        (print (contains x 5))
+        (set! x (insert x 5))
+        (print (contains x 5))
+
+        (print (contains x 15))
+        (set! x (insert x 15))
+        (print (contains x 15))
+
+        (print (contains x 0))
+        (set! x (insert x 0))
+        (print (contains x 0))
+
+        (print (contains x 20))
+        (set! x (insert x 20))
+        (print (contains x 20))
+
+        (set! x (insert x 20))
+        (print (contains x 20))
+
+        (set! x (insert x 25))
+        (set! x (insert x 26))
+        (set! x (insert x 27))
+        (set! x (insert x 1))
+        (set! x (insert x 2))
+        (set! x (insert x 16))
+
+        (tree-print x)
+        
+        true
+    )
+)

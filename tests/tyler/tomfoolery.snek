@@ -1,0 +1,11 @@
+(fun (tomfoolery depth)
+    (block
+        (make-vec 10 0)
+        (if (> depth 10)
+            nil
+            (tomfoolery (add1 depth))
+        )
+    )
+)
+
+(tomfoolery 0)

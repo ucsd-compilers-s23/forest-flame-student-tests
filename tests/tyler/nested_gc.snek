@@ -1,0 +1,16 @@
+(fun (deep depth)
+    (if (< depth 0)
+        (block
+            (vec 1 2 3) 
+            (gc)
+        )
+        (let ((x (vec depth)))
+            (block
+                (deep (sub1 depth)) 
+                (print x)
+            )
+        )
+    )
+)
+
+(deep 6)

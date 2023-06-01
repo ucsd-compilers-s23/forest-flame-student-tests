@@ -1,0 +1,14 @@
+(let ((i 0)) 
+    (loop
+        (let ((z (make-vec 2 i)) (a (make-vec 3 (+ i 2))))
+            (block
+                (print z)
+                (print a)
+                (if (>= i 5)
+                    (break nil)
+                    (set! i (add1 i))
+                )
+            )
+        )
+    )
+)
