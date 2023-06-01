@@ -2,6 +2,7 @@ mod infra;
 
 // Your tests go here!
 success_tests! {
+    subdir: "tyler",
     {
         name: writeup_example_no_limit,
         file: "writeup_example.snek",
@@ -97,6 +98,7 @@ success_tests! {
 }
 
 runtime_error_tests! {
+    subdir: "tyler",
     {
         name: writeup_example_oom,
         file: "writeup_example.snek",
