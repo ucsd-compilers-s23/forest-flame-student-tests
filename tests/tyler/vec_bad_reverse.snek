@@ -1,0 +1,38 @@
+(fun (bad-reverse v) 
+    (let ((size (vec-len v)))
+        (if (= 0 size)
+            nil
+            (let ((new-size (sub1 size)))
+                (let ((last (vec-get v new-size)))
+                    (let ((rest-of-the-vec (make-vec new-size 0)) (i 0))
+                        (loop
+                            (if (< i new-size)
+                                (block
+                                    (vec-set! rest-of-the-vec i (vec-get v i))
+                                    (set! i (add1 i))
+                                )
+                                (block
+                                    (break (vec last (bad-reverse rest-of-the-vec)))
+                                )
+                            ) 
+                        )
+                    )
+                )
+            )
+        )
+    )
+)
+
+(let ((size input))
+    (let ((v (make-vec input 0)) (i 0))
+        (loop
+            (if (< i size)
+                (block
+                    (vec-set! v i i)
+                    (set! i (add1 i))
+                )
+                (break (bad-reverse v))
+            )
+        )
+    )
+)

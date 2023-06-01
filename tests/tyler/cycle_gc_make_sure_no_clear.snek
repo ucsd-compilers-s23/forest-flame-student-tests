@@ -1,0 +1,12 @@
+(let ((x (vec 1 2 3 nil)))
+    (block
+        (let ((y (vec 4 5 6 nil)))
+            (block
+                (vec-set! x 3 y) 
+                (vec-set! y 3 x)
+            )
+        )
+        (gc)
+        (vec nil nil nil nil)
+    )
+)

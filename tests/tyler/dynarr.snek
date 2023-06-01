@@ -1,0 +1,84 @@
+(fun (dyn-arr v)
+    (let ((start-size (vec-len v)) (start-capacity (* 2 (vec-len v))))
+        (let ((darr (make-vec (add1 start-capacity) nil)))
+            (block
+                (vec-set! darr 0 start-size)
+                (let ((i 0))
+                    (loop
+                        (block
+                            (vec-set! darr (add1 i) (vec-get v i)) 
+                            (set! i (add1 i))
+                            (if (>= i start-size)
+                                (break darr)
+                                nil 
+                            )
+                        )
+                    )
+                ) 
+            )
+        )
+    )
+)
+
+(fun (dyn-append darr val)
+    (let ((size (dyn-len darr)) (capacity (sub1 (vec-len darr))))
+        (if (>= size capacity)
+            (let ((new-capacity (* 2 capacity)))
+                (let ((new-darr (make-vec (add1 new-capacity) nil)) (new-size (add1 size)) (i 1))
+                    (block
+                        (vec-set! new-darr 0 new-size)
+                        (loop
+                            (block
+                                (vec-set! new-darr i (vec-get darr i)) 
+                                (set! i (add1 i))
+                                (if (> i size)
+                                    (block
+                                        (vec-set! new-darr new-size val)
+                                        (break new-darr)
+                                    )
+                                    nil 
+                                )
+                            )
+                        )
+                    )
+                )
+            )
+            (let ((new-size (add1 size)))
+                (block
+                    (vec-set! darr 0 new-size)
+                    (vec-set! darr new-size val)
+                    darr
+                )
+            )
+        )
+    )
+)
+
+(fun (dyn-len darr)
+    (vec-get darr 0)
+)
+
+(fun (dyn-get darr index)
+    (vec-get darr (add1 index))
+)
+
+(let ((d (dyn-arr (vec 10))))
+    (block
+        (print d)
+        (set! d (dyn-append d 20))
+        (print d)
+        (set! d (dyn-append d 30))
+        (print d)
+        (set! d (dyn-append d 40))
+        (print d)
+        (set! d (dyn-append d 50))
+        (print d)
+        (set! d (dyn-append d 60))
+        (print d)
+        (set! d (dyn-append d 70))
+        (print d)
+        (set! d (dyn-append d 80))
+        (print d)
+        (dyn-len d)
+    )
+)

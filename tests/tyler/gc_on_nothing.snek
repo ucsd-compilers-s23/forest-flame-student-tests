@@ -1,0 +1,10 @@
+(block
+    (gc)
+    (gc)
+    (gc)
+    (gc)
+    (gc)
+    (gc)
+    (gc)
+    nil
+)
