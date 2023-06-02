@@ -1,0 +1,22 @@
+(fun (createCyclicCollection)
+    (let ( (toReturn (vec 0 1 2)) (other (vec 1)) )
+        (block
+            (vec-set! toReturn 0 other)
+            (vec-set! other 0 toReturn)
+            toReturn
+        )
+    )
+)
+
+(let ((i 0) (iteration_count input) (temp_store_a nil))
+    (loop
+        (block
+            (set! temp_store_a (createCyclicCollection))
+
+            (if (> i iteration_count)
+                (break 0)
+                (set! i (+ i 1))
+            )
+        )
+    )
+)

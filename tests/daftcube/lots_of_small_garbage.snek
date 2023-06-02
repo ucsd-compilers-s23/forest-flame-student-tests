@@ -1,0 +1,13 @@
+(let ( (i 0) (endLoop input) (tempLocation nil) (anotherTempLocation nil) )
+    (loop
+        (block
+            (set! tempLocation (vec i))
+            (set! anotherTempLocation (vec (- i 1)))
+            (if (= i endLoop) 
+                (break 0)
+                0
+            )
+            (set! i (+ i 1))
+        )
+    )
+)

@@ -1,0 +1,43 @@
+(fun (forceGC in)
+    (let ((i 0) (maxIter in))
+        (loop
+            (block
+                (if (< i maxIter)
+                    (vec 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20)
+                    (break true)
+                )
+
+                (set! i (+ i 1))
+            )
+        )
+    )
+)
+
+(fun (fun3 in)
+    (let ((x 3))
+        (block
+            (vec 1 2 3)
+            (forceGC in)
+        )
+    )
+)
+
+(fun (fun2 in)
+    (let ((x 2))
+        (block
+            (vec 1 2 3)
+            (fun3 in)
+        )
+    )
+)
+
+(fun (fun1 in)
+    (let ((x 1))
+        (block
+            (vec 1 2 3)
+            (fun2 in)
+        )
+    )
+)
+
+(fun1 input)

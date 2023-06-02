@@ -1,0 +1,22 @@
+(fun (createDag)
+    (let ( (f (vec 5)) (c (vec 2 f)) (e (vec 4 f)) (b (vec 1 e c)) (a (vec 0 b)) (d (vec 3 b f)) )
+        (block
+            (vec a b c d e f)
+        )
+    )
+)
+
+(let ((i 0) (iteration_count input) (temp_store_a nil))
+    (loop
+        (block
+            (set! temp_store_a (createDag))
+
+            (if (> i iteration_count)
+                (break temp_store_a)
+                (set! i (+ i 1))
+            )
+
+            (vec 1 2 3 4)
+        )
+    )
+)
